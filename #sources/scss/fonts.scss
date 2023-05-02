@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Filson Pro';
+    src: local('Filson Pro Regular'), local('Filson-Pro-Regular'),
+        url('../fonts/FilsonPro-Regular.woff2') format('woff2'),
+        url('../fonts/FilsonPro-Regular.woff') format('woff'),
+        url('../fonts/FilsonPro-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Filson Pro';
+    src: local('Filson Pro Bold'), local('Filson-Pro-Bold'),
+        url('../fonts/FilsonPro-Bold.woff2') format('woff2'),
+        url('../fonts/FilsonPro-Bold.woff') format('woff'),
+        url('../fonts/FilsonPro-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Filson Pro Book';
+    src: local('Filson Pro Book'), local('Filson-Pro-Book'),
+        url('../fonts/FilsonPro-Book.woff2') format('woff2'),
+        url('../fonts/FilsonPro-Book.woff') format('woff'),
+        url('../fonts/FilsonPro-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Filson Pro';
+    src: local('Filson Pro Light'), local('Filson-Pro-Light'),
+        url('../fonts/FilsonPro-Light.woff2') format('woff2'),
+        url('../fonts/FilsonPro-Light.woff') format('woff'),
+        url('../fonts/FilsonPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }

@@ -1,0 +1,28 @@
+@import './fonts';
+@import './var';
+
+[class*="__container"] {
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex: 1 1 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    color: #fff;
+    font-family: Filson Pro;
+    font-weight: 400;
+}
