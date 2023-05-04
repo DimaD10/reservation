@@ -571,6 +571,7 @@
         box-shadow: 5px 4px 75px #101F36;
         border-radius: 20px;
         padding: 38px 44px;
+        pointer-events: none;
         @media (max-width: 1200px) {
             padding-left: calc(18px + (44 - 18) * ((100vw - 320px) / (1200 - 320)));
             padding-right: calc(18px + (44 - 18) * ((100vw - 320px) / (1200 - 320)));
@@ -585,6 +586,7 @@
 }
 .catalog-select._opened {
     .catalog-select__body {
+        pointer-events: all;
         opacity: 1;
         position: static;
         transform: translateY(0);
@@ -662,6 +664,7 @@
     transition: transform ease-in-out $animSpeed;
     img {
         width: 100%;
+        pointer-events: none;
     }
     &:hover {
         transform: rotate(90deg);
@@ -936,5 +939,10 @@
         &::before, &::after {
             opacity: 1;
         }
-    }   
+    }  
+    .checkbox-card__title {
+        color: #fff;
+        background: transparent;
+        -webkit-text-fill-color: #fff;
+    } 
 }

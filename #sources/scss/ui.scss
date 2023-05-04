@@ -26,3 +26,7 @@ body {
     font-family: Filson Pro;
     font-weight: 400;
 }
+
+a, button, .checkbox-card, .select__header, .catalog-select__title {
+    -webkit-tap-highlight-color: transparent;
+}
