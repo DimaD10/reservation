@@ -450,6 +450,7 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
   -webkit-box-shadow: 5px 4px 75px #101F36;
           box-shadow: 5px 4px 75px #101F36;
   border-radius: 20px;
+  z-index: 40;
 }
 .card-box__part {
   padding: 30px 32px;
@@ -484,9 +485,7 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
           flex-direction: column;
   gap: 16px;
   margin-bottom: 26px;
-}
-.prod-list__label {
-  margin-right: 50px;
+  z-index: 999;
 }
 .prod-list__row {
   display: -webkit-box;
@@ -496,9 +495,11 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 10px;
+  z-index: 100;
   font-weight: 400;
   font-size: 17px;
   line-height: 176%;
+  position: relative;
 }
 @media (max-width: 1200px) {
   .prod-list__row {
@@ -509,7 +510,96 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
   white-space: nowrap;
   margin-left: auto;
 }
+.prod-list__popup {
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 32px 26px;
+  border-radius: 20px;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: opacity ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
+  transition: opacity ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
+  transition: opacity ease-in-out 0.3s, transform ease-in-out 0.3s;
+  transition: opacity ease-in-out 0.3s, transform ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
+}
+@media (max-width: 1200px) {
+  .prod-list__popup {
+    padding-left: calc(14px + 12 * (100vw - 320px) / 880);
+    padding-right: calc(14px + 12 * (100vw - 320px) / 880);
+    padding-top: calc(26px + 6 * (100vw - 320px) / 880);
+    padding-bottom: calc(26px + 6 * (100vw - 320px) / 880);
+  }
+}
 
+.prod-list__popup._open {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.prod-list__row.parent-active {
+  z-index: 400;
+}
+
+.animate-row {
+  -webkit-animation: show ease 0.3s;
+          animation: show ease 0.3s;
+}
+
+.hide-row {
+  -webkit-animation: hide linear 0.3s;
+          animation: hide linear 0.3s;
+}
+
+@-webkit-keyframes show {
+  from {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes show {
+  from {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes hide {
+  from {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+@keyframes hide {
+  from {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
 .prod-price {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -936,9 +1026,11 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
 }
 
 .rm-purchase {
-  width: 11px;
-  height: 11px;
-  margin-top: 8px;
+  width: 24px;
+  height: 24px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-top: 3px;
   cursor: pointer;
   -webkit-transition: -webkit-transform ease-in-out 0.3s;
   transition: -webkit-transform ease-in-out 0.3s;
@@ -950,10 +1042,47 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
   pointer-events: none;
 }
 .rm-purchase:hover {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  -webkit-animation: shake linear 0.4s;
+          animation: shake linear 0.4s;
 }
 
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(14deg);
+            transform: rotate(14deg);
+  }
+  60% {
+    -webkit-transform: rotate(-14deg);
+            transform: rotate(-14deg);
+  }
+  99% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(14deg);
+            transform: rotate(14deg);
+  }
+  60% {
+    -webkit-transform: rotate(-14deg);
+            transform: rotate(-14deg);
+  }
+  99% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
 .form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1090,7 +1219,7 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
           align-items: center;
   position: relative;
   cursor: pointer;
-  height: 40px;
+  min-height: 40px;
   padding: 0 15px;
   border-radius: 40px;
   border: 1px solid #ccc;
@@ -1233,8 +1362,12 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
           flex-direction: column;
   cursor: pointer;
   border: 1px solid transparent;
-  -webkit-transition: border ease-in-out 0.3s;
-  transition: border ease-in-out 0.3s;
+  -webkit-transition: border ease-in-out 0.3s, opacity ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
+  transition: border ease-in-out 0.3s, opacity ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
+  transition: border ease-in-out 0.3s, transform ease-in-out 0.3s, opacity ease-in-out 0.3s;
+  transition: border ease-in-out 0.3s, transform ease-in-out 0.3s, opacity ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
+  -webkit-transition-delay: display 0.3s;
+          transition-delay: display 0.3s;
 }
 .checkbox-card__head {
   display: -webkit-box;
@@ -1307,6 +1440,9 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
 
 .checkbox-card._checked {
   border: 1px solid #F17981;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  opacity: 0;
 }
 .checkbox-card._checked .checkbox-card__checkbox {
   border: 1px solid transparent;
@@ -1342,6 +1478,7 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
   left: 0;
   background: -webkit-gradient(linear, left top, right top, from(#CA4BA8), color-stop(101.96%, #F17981));
   background: linear-gradient(90deg, #CA4BA8 0%, #F17981 101.96%);
+  z-index: -1;
 }
 .promotion__wrapper {
   height: 40px;
@@ -1430,6 +1567,23 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
   color: rgba(255, 255, 255, 0.7);
 }
 
+#date {
+  color: #fff;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+}
+#date::-webkit-calendar-picker-indicator {
+  background: url("../img/icons/calendar.svg") no-repeat 100%;
+  background-size: contain;
+  background-position: center;
+}
+
 .checkbox-agree {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1511,4 +1665,33 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
 }
 #cbx:checked ~ label::after {
   opacity: 1;
+}
+
+.invalid {
+  border: 1px solid rgb(198, 17, 17);
+  -webkit-box-shadow: 5px 4px 75px rgba(163, 60, 55, 0.5);
+          box-shadow: 5px 4px 75px rgba(163, 60, 55, 0.5);
+}
+
+.form__block_other {
+  display: none;
+}
+
+.form__block_loc {
+  display: none;
+}
+.form__block_loc .select {
+  min-width: 300px;
+}
+@media (max-width: 480px) {
+  .form__block_loc .select {
+    min-width: 0;
+  }
+}
+
+.prod-list__info {
+  width: 20px;
+  margin-right: 50px;
+  margin-top: 5px;
+  margin-bottom: auto;
 }

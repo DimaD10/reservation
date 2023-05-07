@@ -31,7 +31,7 @@
                                 <h1 class="head-preview__title">Votre offre en détail :</h1>
                                 <div class="head-preview__bottom">
                                     <div class="head-preview__preview">
-                                        <img src="./img/content/img.png" alt="">
+                                        <img src="./img/content/img.jpg" alt="">
                                     </div>
                                     <div class="head-preview__content">
                                         Contour photo 100% personnalisé Photos, Gifs, Boomerangs illimités Partage par courriel et QR code illimités*Inclinaison de la tête ajustable 400 impressions 10x15cm Éclairage led réglable Accessoires numériques & Filtres de couleur Galerie Web
@@ -55,17 +55,8 @@
                                         </div>
                                     </div>
                                     <div class="form__block">
-                                        <label class="form__label">Date de l’événement</label>
-                                        <div class="form__select select">
-                                            <div class="select__header"><div class="select__current">16-08-2023</div><img src="./img/icons/select-icon.svg" alt="" class="select__icon"></div>
-                                            <div class="select__body">
-                                                <div class="select__el">16-08-2023</div>
-                                                <div class="select__el">20-08-2023</div>
-                                                <div class="select__el">22-08-2023</div>
-                                                <div class="select__el">24-08-2023</div>
-                                                <div class="select__el">26-08-2023</div>
-                                            </div>
-                                        </div>
+                                        <label for="date" class="form__label">Date de l’événement</label>
+                                        <input type="date" id="date" class="form__input" placeholder="Merci de renseigner la ville" value="2023-08-16">
                                     </div>
                                     <div class="form__block">
                                         <label for="merci" class="form__label">Lieu de l’événement</label>
@@ -81,6 +72,7 @@
                                                 <div class="select__el">1 jour</div>
                                                 <div class="select__el">2 jour</div>
                                                 <div class="select__el">3 jour</div>
+                                                <div class="select__el">+ de 3 jours</div>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +181,7 @@
                             <h2 class="catalog-select__title"><div class="catalog-select__title-icon"><img src="./img/icons/arrow.svg" alt=""></div>VOTRE LOGISTIQUE</h2>
                             <div class="catalog-select__body mixed">
                                 <div class="checkbox-list">
-                                    <div class="checkbox-card">
+                                    <div class="checkbox-card checkbox-card_radio choose-loc">
                                         <div class="checkbox-card__head">
                                             <div class="checkbox-card__checkbox">
                                                 
@@ -202,7 +194,7 @@
                                         </p>
                                     </div>
 
-                                    <div class="checkbox-card">
+                                    <div class="checkbox-card checkbox-card_radio choose-other">
                                         <div class="checkbox-card__head">
                                             <div class="checkbox-card__checkbox">
                                                 
@@ -215,7 +207,7 @@
                                         </p>
                                     </div>
 
-                                    <div class="checkbox-card _checked">
+                                    <div class="checkbox-card checkbox-card_radio choose-other">
                                         <div class="checkbox-card__head">
                                             <div class="checkbox-card__checkbox">
                                                 
@@ -230,18 +222,18 @@
                                 </div>
 
                                 <div class="form">
-                                    <div class="form__column">
-                                        <div class="form__block">
+                                    <div class="form__column form__block_other">
+                                        <div class="form__block form__block_other">
                                             <label for="address" class="form__label">Adresse de livraison</label>
                                             <input type="text" id="address" class="form__input" placeholder="3 sentier des marécages">
                                         </div>
-                                        <div class="form__block">
+                                        <div class="form__block form__block_other">
                                             <label for="ville" class="form__label">Ville de livraison</label>
                                             <input type="text" id="ville" class="form__input" placeholder="Montreuil">
                                         </div>
                                     </div>
-                                    <div class="form__column">
-                                        <div class="form__block">
+                                    <div class="form__column form__block_other">
+                                        <div class="form__block ">
                                             <label for="code" class="form__label">Code postale</label>
                                             <input type="text" id="code" class="form__input" placeholder="93100">
                                         </div>
@@ -253,6 +245,17 @@
                                                     <div class="select__el">13h - 19h</div>
                                                     <div class="select__el">14h - 20h</div>
                                                     <div class="select__el">15h - 21h</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form__column form__block_loc">
+                                        <div class="form__block">
+                                            <label class="form__label">Notre adresse</label>
+                                            <div class="form__select select">
+                                                <div class="select__header"><div class="select__current">5 rue Malmaison 93170 Bagnolet </div><img src="./img/icons/select-icon.svg" alt="" class="select__icon"></div>
+                                                <div class="select__body">
+                                                    <div class="select__el">5 rue Malmaison 93170 Bagnolet </div>
                                                 </div>
                                             </div>
                                         </div>
