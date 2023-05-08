@@ -487,6 +487,9 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
   margin-bottom: 26px;
   z-index: 999;
 }
+.prod-list__label {
+  margin-right: auto;
+}
 .prod-list__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -508,7 +511,7 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
 }
 .prod-list__price {
   white-space: nowrap;
-  margin-left: auto;
+  margin-left: 50px;
 }
 .prod-list__popup {
   background-color: rgba(0, 0, 0, 0.8);
@@ -1691,7 +1694,10 @@ a, button, .checkbox-card, .select__header, .catalog-select__title {
 
 .prod-list__info {
   width: 20px;
-  margin-right: 50px;
   margin-top: 5px;
   margin-bottom: auto;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 70px;
 }

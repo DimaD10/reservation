@@ -286,6 +286,10 @@
     //overflow: hidden;
     z-index: 999;
 
+    &__label {
+        margin-right: auto;
+    }
+
     // .prod-list__row
     &__row {
         display: flex;
@@ -304,7 +308,7 @@
     // .prod-list__price
     &__price {
         white-space: nowrap;
-        margin-left: auto;
+        margin-left: 50px;
     }
 
     &__popup {
@@ -1237,7 +1241,10 @@
 }
 .prod-list__info {
     width: 20px;
-    margin-right: 50px;
     margin-top: 5px;
     margin-bottom: auto;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 70px;
 }
